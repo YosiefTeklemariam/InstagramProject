@@ -27,7 +27,7 @@ public class InstagramPostController {
 		return "Welcome to Instagram";
 	}
 
-	@RequestMapping("/post/{id}")
+	@RequestMapping("/post/get/{id}")
 	public ResponseEntity<?> getPost(@PathVariable("id") String id) {
 		Post p = postService.getPost(id);
 		if(p == null) {
@@ -36,12 +36,12 @@ public class InstagramPostController {
 		return new ResponseEntity<Post>(p, HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/post/{id}")
+	@DeleteMapping("/post/remove/{id}")
 	public void removePost(@PathVariable("id") String id) {
 		postService.deletePost(id);
 	}
 
-	@PostMapping("/post")
+	@PostMapping("/post/upload")
 	public Post savePost(@RequestBody Post post) {
 		return postService.savePost(post);
 	}

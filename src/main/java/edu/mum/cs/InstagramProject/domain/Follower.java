@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Follower extends Profile {
 	
-	private String id;
+	private String followerId;
 	private User user;
 	private List<User> userFollowers;
 	
@@ -16,7 +16,13 @@ public class Follower extends Profile {
 
 	public Follower(String id) {
 		super();
-		this.id = id;
+		this.followerId = id;
+	}
+	public String getFollowerId() {
+		return followerId;
+	}
+	public void setFollowerId(String followerId) {
+		this.followerId = followerId;
 	}
 
 	@Override

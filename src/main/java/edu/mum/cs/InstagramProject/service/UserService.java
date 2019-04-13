@@ -13,6 +13,5 @@ public interface UserService {
 
 	public User deleteUser(String userId);
 
-//	public List<User> getUserList();
-	
+	public List<User> getUserList();
 }

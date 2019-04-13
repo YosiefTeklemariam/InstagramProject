@@ -13,10 +13,14 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserRepository userRepository;
+	
+
+	public UserServiceImpl() {
+		super();
+	}
 
 	@Override
 	public User getUser(String userId) {
-		//need to have exception handling to display msg when there is no User to return
 		User user = userRepository.findById(userId).orElse(null);
 		return user;
 	}
@@ -30,7 +34,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User updateUser(User user) {
 		User oldUser = getUser(user.getUserId());
-		if(!oldUser.equals(null)) {
+		if (!oldUser.equals(null)) {
 			userRepository.delete(oldUser);
 			userRepository.save(user);
 			return user;
@@ -42,7 +46,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User deleteUser(String userId) {
 		User oldUser = getUser(userId);
-		if(oldUser != null) {
+		if (oldUser != null) {
 			userRepository.delete(oldUser);
 			return oldUser;
 		} else {
@@ -50,10 +54,10 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
-//	@Override
-//	public List<User> getUserList(String userId) {
-//		// TODO Auto-generated method stub
-//		return userRepository.findAll(userId);
-//	}
+	@Override
+	public List<User> getUserList() {
+		return userRepository.findAll();
+			}
+
 
 }

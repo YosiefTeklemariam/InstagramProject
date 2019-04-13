@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRelation extends Profile {
-	
+	private String UserRelationId;
 	private List<User> followersList;
 	private List<User> followingsList;
 
@@ -12,6 +12,14 @@ public class UserRelation extends Profile {
 		super();
 		followersList = new ArrayList<>();
 		followingsList = new ArrayList<>();
+	}
+	
+	public String getUserRelationId() {
+		return UserRelationId;
+	}
+
+	public void setUserRelationId(String userRelationId) {
+		UserRelationId = userRelationId;
 	}
 	
 	public void addUserRelation(User user) {

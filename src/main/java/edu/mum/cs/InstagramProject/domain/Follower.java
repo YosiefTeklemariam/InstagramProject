@@ -3,39 +3,46 @@ package edu.mum.cs.InstagramProject.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Follower extends Profile {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Follower {
 	
-	private String followerId;
-	private User user;
+	@Id
+	private String followedId;
+	private User userFollowed;
 	private List<User> userFollowers;
 	
-	public Follower() {
+	public Follower(User userFollowed) {
 		super();
+		this.userFollowed = userFollowed;
 		this.userFollowers = new ArrayList<>();
 	}
-
-	public Follower(String id) {
-		super();
-		this.followerId = id;
+	
+	public void addFollower(User follower) {
+		userFollowers.add(follower);
 	}
+	
 	public String getFollowerId() {
-		return followerId;
+		return followedId;
 	}
-	public void setFollowerId(String followerId) {
-		this.followerId = followerId;
+	
+	public void setFollowerId(String followedId) {
+		this.followedId = followedId;
 	}
 
 	@Override
 	public String toString() {
-		return "Follower [user=" + user + ", userFollowers=" + userFollowers.size() + "]";
+		return "Follower [user=" + userFollowed + ", userFollowers=" + userFollowers.size() + "]";
 	}
 
 	public User getUser() {
-		return user;
+		return userFollowed;
 	}
 
 	public void setUser(User user) {
-		this.user = user;
+		this.userFollowed = user;
 	}
 
 	public List<User> getUserFollowers() {

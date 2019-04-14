@@ -3,44 +3,54 @@ package edu.mum.cs.InstagramProject.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Following extends Profile {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Following {
 	
-	private String id;
-	private User user;
-	private List<User> followingUsers;
+	@Id
+	private String followingId;
+	private User userFollowingTo;
+	private List<User> userFollowings;
 	
-	public Following() {
+	public Following(User userFollowingTo) {
 		super();
-		this.followingUsers = new ArrayList<>();
+		this.userFollowingTo = userFollowingTo;
+		this.userFollowings = new ArrayList<>();
+	}
+	
+	public void addFollowing(User following) {
+		userFollowings.add(following);
 	}
 	
 	public String getId() {
-		return id;
+		return followingId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String followingId) {
+		this.followingId = followingId;
 	}
 
 	@Override
 	public String toString() {
-		return "Following [user=" + user + ", followingUsers=" + followingUsers.size() + "]";
+		return "Following [userFollowingTo=" + userFollowingTo + ", userFollowings=" + userFollowings.size() + "]";
 	}
 
 	public User getUser() {
-		return user;
+		return userFollowingTo;
 	}
 
 	public void setUser(User user) {
-		this.user = user;
+		this.userFollowingTo = user;
 	}
 
 	public List<User> getFollowingUsers() {
-		return followingUsers;
+		return userFollowings;
 	}
 
-	public void setFollowingUsers(List<User> followingUsers) {
-		this.followingUsers = followingUsers;
+	public void setFollowingUsers(List<User> userFollowings) {
+		this.userFollowings = userFollowings;
 	}
 
 }

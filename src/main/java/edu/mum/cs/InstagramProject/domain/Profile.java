@@ -1,9 +1,13 @@
 package edu.mum.cs.InstagramProject.domain;
 
-public class Profile {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-	private String name;
+@Document 
+public class Profile {
+    @Id
 	private String userName;
+	private String name;
 	private String website;
 	private String bio;
 	private String emial;

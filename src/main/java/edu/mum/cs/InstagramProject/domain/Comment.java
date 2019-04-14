@@ -8,8 +8,8 @@ public class Comment {
 
 	@Id
 	private String Id;
-	private String Comment;
-	private String userId;
+	private String comment;
+	private String ownerId;
 	private LocalDateTime commentDate;
 	private String postId;
 
@@ -17,24 +17,20 @@ public class Comment {
 		return Id;
 	}
 
-	public void setId(String id) {
-		Id = id;
-	}
-
 	public String getComment() {
-		return Comment;
+		return comment;
 	}
 
 	public void setComment(String comment) {
-		Comment = comment;
+		this.comment = comment;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getOwnerId() {
+		return ownerId;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setOwnerId(String ownerId) {
+		this.ownerId = ownerId;
 	}
 
 	public LocalDateTime getCommentDate() {
@@ -52,5 +48,11 @@ public class Comment {
 	public void setPostId(String postId) {
 		this.postId = postId;
 	}
+
+	public void setId(String id) {
+		Id = id;
+	}
+
+	
 
 }

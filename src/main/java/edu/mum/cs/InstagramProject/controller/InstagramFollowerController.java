@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import edu.mum.cs.InstagramProject.domain.Follower;
+import edu.mum.cs.InstagramProject.domain.User;
 import edu.mum.cs.InstagramProject.service.FollowerService;
 
 public class InstagramFollowerController {
@@ -25,11 +25,11 @@ public class InstagramFollowerController {
 
 	@RequestMapping("/follower/get/{id}")
 	public ResponseEntity<?> getFollower(@PathVariable("id") String id) {
-		Follower follower = followerService.getFollower(id);
+		User follower = followerService.getFollower(id);
 		if (follower == null) {
 			return new ResponseEntity<String>("Not valid id, Try again", HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<Follower>(follower, HttpStatus.OK);
+		return new ResponseEntity<User>(follower, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/follower/remove/{id}")
@@ -38,12 +38,12 @@ public class InstagramFollowerController {
 	}
 
 	@PostMapping("/follower/upload")
-	public Follower saveFollower(@RequestBody Follower follower) {
+	public User saveFollower(@RequestBody User follower) {
 		return followerService.saveFollower(follower);
 	}
 
 	@RequestMapping("/follower/getall")
-	public List<Follower> getAllFollower() {
+	public List<User> getAllFollower() {
 		return followerService.getFollowerList("@PathVariable(\"id\") String id");
 	}
 

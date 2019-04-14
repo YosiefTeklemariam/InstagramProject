@@ -1,11 +1,12 @@
 package edu.mum.cs.InstagramProject.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.mum.cs.InstagramProject.domain.Following;
+import edu.mum.cs.InstagramProject.domain.User;
 import edu.mum.cs.InstagramProject.repository.FollowingRepository;
 
 @Service
@@ -18,31 +19,34 @@ public class FollowingServiceImpl implements FollowingService {
 	}
 
 	@Override
-	public Following getFollowing(String FollowingId) {
-		Following following = followingRepository.findById(FollowingId).orElse(null);
+	public User getFollowing(String FollowingId) {
+		User following = followingRepository.findById(FollowingId).orElse(null);
 		return following;
 	}
 
 	@Override
-	public Following saveFollowing(Following Following) {
+	public User saveFollowing(User Following) {
 		followingRepository.save(Following);
 		return Following;
 	}
 
 	@Override
-	public Following updateFollowing(Following Following) {
-		Following oldFollowing = getFollowing(Following.getId());
+	public User updateFollowing(User following) {
+		User oldFollowing = getFollowing(following.getUserId());
 		if (!oldFollowing.equals(null)) {
 			followingRepository.delete(oldFollowing);
-			followingRepository.save(Following);
-			return Following;
+			followingRepository.save(following);
+			return following;
 		}
 		return null;
 	}
 
 	@Override
-	public Following deleteFollowing(String FollowingId) {
-		Following oldFollowing = getFollowing(FollowingId);
+	public User deleteFollowing(String followingId) {
+		User oldFollowing = new User();
+		List<String> followerList = new ArrayList<>();
+		followerList.add(followingId);
+		oldFollowing.setFollowers(followerList);
 		if (oldFollowing != null) {
 			followingRepository.delete(oldFollowing);
 			return oldFollowing;
@@ -51,7 +55,7 @@ public class FollowingServiceImpl implements FollowingService {
 	}
 
 	@Override
-	public List<Following> getFollowingList(String userID) {
+	public List<User> getFollowingList(String userID) {
 
 		return followingRepository.findAll();
 	}

@@ -14,9 +14,9 @@ public class Post {
 	private String id;
 	private String title;
 	private String ownerId; // UserId will be provided.
-	private List<String> likes;
-	private List<String> comments;
-	private Image image;
+	private List<String> likes; // UserId will be provided.
+	private List<String> comments; // UserId will be provided.
+	private String image;  //image  will be stored as base64 encoded b/c easier in JSON 
 
 	public Post() {
 		super();
@@ -64,11 +64,11 @@ public class Post {
 		this.comments = comments;
 	}
 
-	public Image getImage() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImage(Image image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 

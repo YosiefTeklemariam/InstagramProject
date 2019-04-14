@@ -2,18 +2,18 @@ package edu.mum.cs.InstagramProject.service;
 
 import java.util.List;
 
-import edu.mum.cs.InstagramProject.domain.Follower;
+import edu.mum.cs.InstagramProject.domain.User;
 
 public interface FollowerService {
 	
-	public Follower getFollower(String userId);
+	public User getFollower(String userId);
 
-	public Follower saveFollower(Follower follower);
+	public User saveFollower(User follower);
 
-	public Follower updateFollower(Follower follower);
+	public User updateFollower(User follower);
 
-	public Follower deleteFollower(String followerId);
+	public User deleteFollower(String followerId);
 
-	public List<Follower> getFollowerList(String followerID);
+	public List<User> getFollowerList(String followerID);
 
 }

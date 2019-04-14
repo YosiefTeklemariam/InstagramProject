@@ -45,6 +45,11 @@ public class InstagramPostController {
 	public Post savePost(@RequestBody Post post) {
 		return postService.savePost(post);
 	}
+	
+	@PostMapping("/post/create")
+	public Post createPost(@RequestBody Post post) {
+		return postService.savePost(post);
+	}
 
 	@RequestMapping("/post/getall")
 	public List<Post> getAllPost() {

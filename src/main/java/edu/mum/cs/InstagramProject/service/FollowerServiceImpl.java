@@ -3,7 +3,7 @@ package edu.mum.cs.InstagramProject.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import edu.mum.cs.InstagramProject.domain.Follower;
+import edu.mum.cs.InstagramProject.domain.User;
 import edu.mum.cs.InstagramProject.repository.FollowerRepository;
 
 public class FollowerServiceImpl implements FollowerService {
@@ -16,20 +16,20 @@ public class FollowerServiceImpl implements FollowerService {
 	}
 
 	@Override
-	public Follower getFollower(String followerId) {
-		Follower follower = followerRepository.findById(followerId).orElse(null);
+	public User getFollower(String followerId) {
+		User follower = followerRepository.findById(followerId).orElse(null);
 		return follower;
 	}
 
 	@Override
-	public Follower saveFollower(Follower follower) {
+	public User saveFollower(User follower) {
 		followerRepository.save(follower);
 		return follower;
 	}
 
 	@Override
-	public Follower updateFollower(Follower follower) {
-		Follower oldfollower = getFollower(follower.getFollowerId());
+	public User updateFollower(User follower) {
+		User oldfollower = getFollower(follower.getUserId());
 		if (!oldfollower.equals(null)) {
 			followerRepository.delete(oldfollower);
 			followerRepository.save(follower);
@@ -40,8 +40,8 @@ public class FollowerServiceImpl implements FollowerService {
 	}
 
 	@Override
-	public Follower deleteFollower(String followerId) {
-		Follower oldFollower = getFollower(followerId);
+	public User deleteFollower(String followerId) {
+		User oldFollower = getFollower(followerId);
 		if (oldFollower != null) {
 			followerRepository.delete(oldFollower);
 			return oldFollower;
@@ -51,7 +51,7 @@ public class FollowerServiceImpl implements FollowerService {
 	}
 
 	@Override
-	public List<Follower> getFollowerList(String followerId) {
+	public List<User> getFollowerList(String followerId) {
 		return followerRepository.findAll();
 	}
 

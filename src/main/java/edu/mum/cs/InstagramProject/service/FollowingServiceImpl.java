@@ -3,10 +3,11 @@ package edu.mum.cs.InstagramProject.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import edu.mum.cs.InstagramProject.domain.Following;
 import edu.mum.cs.InstagramProject.repository.FollowingRepository;
-
+@Service
 public class FollowingServiceImpl implements FollowingService{
 	@Autowired
 	FollowingRepository followingRepository;

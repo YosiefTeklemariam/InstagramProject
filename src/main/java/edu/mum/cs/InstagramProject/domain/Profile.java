@@ -10,7 +10,7 @@ public class Profile {
 	private String name;
 	private String website;
 	private String bio;
-	private String emial;
+	private String email;
 	private String phoneNumber;
 	private String gender;
 	private String photoUrl;
@@ -19,14 +19,14 @@ public class Profile {
 		super();
 	}
 
-	public Profile(String name, String userName, String website, String bio, String emial, String phoneNumber,
+	public Profile(String name, String userName, String website, String bio, String email, String phoneNumber,
 			String gender, String photoUrl) {
 		super();
 		this.name = name;
 		this.userName = userName;
 		this.website = website;
 		this.bio = bio;
-		this.emial = emial;
+		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.gender = gender;
 		this.photoUrl = photoUrl;
@@ -64,12 +64,12 @@ public class Profile {
 		this.bio = bio;
 	}
 
-	public String getEmial() {
-		return emial;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmial(String emial) {
-		this.emial = emial;
+	public void setEmial(String email) {
+		this.email = email;
 	}
 
 	public String getPhoneNumber() {
@@ -101,7 +101,7 @@ public class Profile {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((bio == null) ? 0 : bio.hashCode());
-		result = prime * result + ((emial == null) ? 0 : emial.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
@@ -130,11 +130,11 @@ public class Profile {
 		} else if (!bio.equals(other.bio)) {
 			return false;
 		}
-		if (emial == null) {
-			if (other.emial != null) {
+		if (email == null) {
+			if (other.email != null) {
 				return false;
 			}
-		} else if (!emial.equals(other.emial)) {
+		} else if (!email.equals(other.email)) {
 			return false;
 		}
 		if (gender == null) {
@@ -185,7 +185,7 @@ public class Profile {
 	@Override
 	public String toString() {
 		return "Profile [name=" + name + ", userName=" + userName + ", website=" + website + ", bio=" + bio + ", emial="
-				+ emial + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", photoUrl=" + photoUrl + "]";
+				+ email + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", photoUrl=" + photoUrl + "]";
 	}
 
 }

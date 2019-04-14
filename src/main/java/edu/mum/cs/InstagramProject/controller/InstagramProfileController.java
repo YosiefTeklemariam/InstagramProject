@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.mum.cs.InstagramProject.domain.Post;
+
 import edu.mum.cs.InstagramProject.domain.Profile;
 import edu.mum.cs.InstagramProject.service.ProfileService;
 

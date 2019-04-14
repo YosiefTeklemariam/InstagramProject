@@ -22,6 +22,7 @@ public class InstagramFollowerController {
 	public String follower() {
 		return "Welcome to Instagram-Follower";
 	}
+
 	@RequestMapping("/follower/get/{id}")
 	public ResponseEntity<?> getFollower(@PathVariable("id") String id) {
 		Follower follower = followerService.getFollower(id);
@@ -30,18 +31,20 @@ public class InstagramFollowerController {
 		}
 		return new ResponseEntity<Follower>(follower, HttpStatus.OK);
 	}
+
 	@DeleteMapping("/follower/remove/{id}")
 	public void removeFollower(@PathVariable("id") String id) {
 		followerService.deleteFollower(id);
 	}
+
 	@PostMapping("/follower/upload")
 	public Follower saveFollower(@RequestBody Follower follower) {
 		return followerService.saveFollower(follower);
 	}
+
 	@RequestMapping("/follower/getall")
 	public List<Follower> getAllFollower() {
 		return followerService.getFollowerList("@PathVariable(\"id\") String id");
 	}
-
 
 }

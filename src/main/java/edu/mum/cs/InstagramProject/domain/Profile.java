@@ -1,7 +1,7 @@
 package edu.mum.cs.InstagramProject.domain;
 
 public class Profile {
-	
+
 	private String name;
 	private String userName;
 	private String website;

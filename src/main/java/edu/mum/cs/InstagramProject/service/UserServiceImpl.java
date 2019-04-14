@@ -10,10 +10,9 @@ import edu.mum.cs.InstagramProject.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	UserRepository userRepository;
-	
 
 	public UserServiceImpl() {
 		super();
@@ -57,7 +56,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> getUserList() {
 		return userRepository.findAll();
-			}
-
+	}
 
 }

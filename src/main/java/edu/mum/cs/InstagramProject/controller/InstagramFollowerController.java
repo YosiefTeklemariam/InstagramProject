@@ -18,8 +18,8 @@ public class InstagramFollowerController {
 	@Autowired
 	FollowerService followerService;
 
-	@RequestMapping("/Follower")
-	public String following() {
+	@RequestMapping("/follower")
+	public String follower() {
 		return "Welcome to Instagram-Follower";
 	}
 	@RequestMapping("/follower/get/{id}")

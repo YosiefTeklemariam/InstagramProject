@@ -1,5 +1,6 @@
 package edu.mum.cs.InstagramProject.domain;
 
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,34 +9,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Post {
-	
+
 	@Id
 	private String id;
 	private String title;
-	private String mediaUrl;
-	private List<User> likes;
+	private String ownerId; // UserId will be provided.
+	private List<String> likes;
 	private List<String> comments;
+	private Image image;
 
 	public Post() {
 		super();
 		this.likes = new ArrayList<>();
 		this.comments = new ArrayList<>();
-	}
-
-	public void addLike(User user) {
-		likes.add(user);
-	}
-	
-	public int getNumberOfLikes() {
-		return likes.size();
-	}
-	
-	public void addComment(String comment) {
-		comments.add(comment);
-	}
-	
-	public int getNumberOfComments() {
-		return comments.size();
 	}
 
 	public String getId() {
@@ -54,19 +40,19 @@ public class Post {
 		this.title = title;
 	}
 
-	public String getMediaUrl() {
-		return mediaUrl;
+	public String getOwnerId() {
+		return ownerId;
 	}
 
-	public void setMediaUrl(String mediaUrl) {
-		this.mediaUrl = mediaUrl;
+	public void setOwnerId(String ownerId) {
+		this.ownerId = ownerId;
 	}
 
-	public List<User> getLikes() {
+	public List<String> getLikes() {
 		return likes;
 	}
 
-	public void setLikes(List<User> likes) {
+	public void setLikes(List<String> likes) {
 		this.likes = likes;
 	}
 
@@ -78,10 +64,12 @@ public class Post {
 		this.comments = comments;
 	}
 
-	@Override
-	public String toString() {
-		return "Post [id=" + id + ", title=" + title + ", mediaUrl=" + mediaUrl + ", likes=" + likes.size() + ", comments="
-				+ comments.size() + "]";
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.stereotype.Component;
 
 @Document
 public class Follower {
@@ -12,6 +13,7 @@ public class Follower {
 	@Id
 	private String followedId;
 	private User userFollowed;
+	
 	private List<User> userFollowers;
 	
 	public Follower(User userFollowed) {

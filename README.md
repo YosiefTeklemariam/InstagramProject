@@ -70,7 +70,7 @@ java -jar target/InstagramProject-0.0.1-SNAPSHOT.jar
 browse to test - http://localhost:8080/home
 ```
 
-## 5. Other usefull commands :
+## 5. Other useful commands :
 ```bash
 docker container ls
 docker container logs <container id>

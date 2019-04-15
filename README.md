@@ -53,7 +53,7 @@ Run both container on the same network(group3network) consecutively
 docker container run --network group3network --name mongodb-server -p27017:27017 -d --rm mongo
 ```
 ```bash
-docker container run --network group3network --name insta-app -p8080:8080 -d --rm group3image
+docker container run --network group3network --name insta-app -p8080:8080 -d --rm ber741/group3image
 ```
 
 ## How to run the application :

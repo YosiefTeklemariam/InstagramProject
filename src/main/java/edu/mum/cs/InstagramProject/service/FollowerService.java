@@ -3,6 +3,7 @@ package edu.mum.cs.InstagramProject.service;
 import java.util.List;
 
 import edu.mum.cs.InstagramProject.domain.User;
+import edu.mum.cs.InstagramProject.dto.FollowerDTO;
 
 public interface FollowerService {
 	
@@ -15,5 +16,7 @@ public interface FollowerService {
 	public User deleteFollower(String followerId);
 
 	public List<User> getFollowerList(String followerID);
+	
+	public User addFollower(FollowerDTO follower);
 
 }

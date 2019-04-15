@@ -16,7 +16,7 @@ public class Post {
 	private String ownerId; // UserId will be provided.
 	private List<String> likes; // UserId will be provided.
 	private List<String> comments; // UserId will be provided.
-	private String image;  //image  will be stored as base64 encoded b/c easier in JSON 
+	private String image;  //image  will be stored as base64 encoded b/c it is easier in JSON 
 
 	public Post() {
 		super();

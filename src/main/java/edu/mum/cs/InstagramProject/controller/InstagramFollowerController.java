@@ -8,13 +8,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import edu.mum.cs.InstagramProject.domain.User;
+import edu.mum.cs.InstagramProject.dto.FollowerDTO;
 import edu.mum.cs.InstagramProject.service.FollowerService;
 
+@RestController
 public class InstagramFollowerController {
+	
 	@Autowired
 	FollowerService followerService;
 
@@ -40,6 +45,11 @@ public class InstagramFollowerController {
 	@PostMapping("/follower/upload")
 	public User saveFollower(@RequestBody User follower) {
 		return followerService.saveFollower(follower);
+	}
+
+	@PutMapping("/follower/add")
+	public User addFollower(@RequestBody FollowerDTO follower) {
+		return followerService.addFollower(follower);
 	}
 
 	@RequestMapping("/follower/getall")

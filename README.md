@@ -1,12 +1,12 @@
 # InstagramProject by Group 3
 
-## How to build a maven project:
+## 1. How to build a maven project:
 ```bash
 mvn clean install -DskipTests
 ```
 
 
-## How to run the application From Dockerfile:
+## 2. How to run the application From Dockerfile:
 
 Build the dockerFile to create an image
 ```bash
@@ -34,7 +34,7 @@ docker container run --network group3network --name insta-app -p8080:8080 -d --r
 
 
 
-## How to run the application by downloading the image:
+## 3. How to run the application by downloading the image:
 
 Pull the image from the [Image link](https://hub.docker.com/r/ber741/group3image)
 ```bash
@@ -56,7 +56,14 @@ docker container run --network group3network --name mongodb-server -p27017:27017
 docker container run --network group3network --name insta-app -p8080:8080 -d --rm ber741/group3image
 ```
 
-## How to run the application :
+## 4. How to run the application :
 ```bash
 http://localhost:8080/home
 ```
+
+## 5. Other usefull commands :
+```bash
+docker container ls
+docker container logs <container id>
+docker container stop <conatiner id>
+
